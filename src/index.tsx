@@ -1,7 +1,12 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+// eslint-disable-next-line import/no-unresolved
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
