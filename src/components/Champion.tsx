@@ -8,30 +8,30 @@ import Spells from './Spells';
 import Passives from './Passive';
 
 const Champion: React.FC = () => {
-  const { name } = useParams();
-  const [champion, setChampion] = useState({}as ChampionFull);
+    const { name } = useParams();
+    const [champion, setChampion] = useState({} as ChampionFull);
 
-  useEffect(() => {
-    if(!champion.champion) {
-      document.title = 'Champion';
-      ChampionService.champion(name).then((value) => {
-        setChampion(value);
-      });
+    useEffect(() => {
+        if (!champion.champion) {
+            document.title = 'Champion';
+            ChampionService.champion(name).then((value) => {
+                setChampion(value);
+            });
+        } else {
+            document.title = champion.champion.name;
+        }
+    });
+    if (!champion.champion) {
+        return <div>Fetching Data</div>;
     } else {
-      document.title = champion.champion.name;
+        return (
+            <div>
+                <StatGrid champion={champion.champion} />
+                <Spells spells={champion.champion.spells} />
+                <Passives passive={champion.champion.passive} />
+            </div>
+        );
     }
-  });
-  if (!champion.champion){
-    return <div>Fetching Data</div>;
-  } else {
-    return (
-      <div>
-        <StatGrid champion={champion.champion} />
-        <Spells spells={champion.champion.spells} />
-        <Passives passive={champion.champion.passive} />
-      </div>
-    );
-  }
 };
 
 export default Champion;

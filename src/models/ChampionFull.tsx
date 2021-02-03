@@ -50,6 +50,7 @@ export interface Leveltip {
     effect: string[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Datavalues {}
 
 export interface Image2 {

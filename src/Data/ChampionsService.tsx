@@ -21,10 +21,9 @@ class ChampionService {
             version: data.version,
             champion: Object.values(data.data).map((item) => {
                 return item as ChampionLite;
-            })
-            [0],
-        }
+            })[0],
+        };
         return Promise.resolve(cf);
-    }
+    };
 }
 export default ChampionService;
